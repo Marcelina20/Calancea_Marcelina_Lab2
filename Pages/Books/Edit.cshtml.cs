@@ -32,6 +32,7 @@ namespace Calancea_Marcelina_Lab2.Pages.Books
 
             Book = await _context.Book
                  .Include(b => b.Publisher)
+                 .Include(b => b.Author)
                  .Include(b => b.BookCategories).ThenInclude(b => b.Category)
                  .AsNoTracking()
                  .FirstOrDefaultAsync(m => m.ID == id);
